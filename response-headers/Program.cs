@@ -57,6 +57,6 @@ app.Run(async (HttpContext context) =>
         await context.Response.WriteAsync(queryDict["name"]!);
     }
    
-
+     
 });
 app.Run();
