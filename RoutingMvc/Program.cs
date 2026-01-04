@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Routing.Constraints;
-
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
@@ -28,6 +26,23 @@ app.Map("products/details/{id:int}", async (HttpContext context) =>
     {
         await context.Response.WriteAsync(id.ToString());
     } 
+});
+
+// employee/profile/john
+app.Map("employee/profile/{name:minlength(3):maxlength(10):alpha}", async (HttpContext context) =>
+{
+    string? employeeName = Convert.ToString(context.Request.RouteValues["name"]);
+    await context.Response.WriteAsync("Emplyoee name is : " + employeeName);
+});
+
+
+// sales-report/2030/apr
+app.Map("sales-report/{year:int}/{month}", async (HttpContext context) =>
+{
+    int? year = Convert.ToInt32(context.Request.RouteValues["year"]);
+    string? month = Convert.ToString(context.Request.RouteValues["month"]);
+
+    await context.Response.WriteAsync(year + " " + month);
 });
 
 app.Map("daily-digest-report/{reportdate:datetime}", async (HttpContext context) =>
