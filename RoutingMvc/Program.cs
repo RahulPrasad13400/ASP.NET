@@ -1,4 +1,15 @@
+using RoutingMvc.CustomConstraint;
+
 var builder = WebApplication.CreateBuilder(args);
+
+// registering the custom constraints
+builder.Services.AddRouting(options =>
+    // "months" is the constraint name used in routes
+    // MonthCustomConstraint is the class that performs the validation
+{   // we have to give the constraint and the type of the custom constraint class 
+    options.ConstraintMap.Add("months", typeof(MonthCustomConstraint));
+});
+
 var app = builder.Build();
 
 
@@ -29,7 +40,7 @@ app.Map("products/details/{id:int}", async (HttpContext context) =>
 });
 
 // employee/profile/john
-app.Map("employee/profile/{name:minlength(3):maxlength(10):alpha}", async (HttpContext context) =>
+app.Map("employee/profile/{name:minlength(3):maxlength(10)}", async (HttpContext context) =>
 {
     string? employeeName = Convert.ToString(context.Request.RouteValues["name"]);
     await context.Response.WriteAsync("Emplyoee name is : " + employeeName);
@@ -37,7 +48,7 @@ app.Map("employee/profile/{name:minlength(3):maxlength(10):alpha}", async (HttpC
 
 
 // sales-report/2030/apr
-app.Map("sales-report/{year:int}/{month}", async (HttpContext context) =>
+app.Map("sales-report/{year:int}/{month:months}", async (HttpContext context) =>
 {
     int? year = Convert.ToInt32(context.Request.RouteValues["year"]);
     string? month = Convert.ToString(context.Request.RouteValues["month"]);
