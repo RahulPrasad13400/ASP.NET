@@ -11,22 +11,27 @@ namespace ControllersExample.Controllers
             return "Hello from abc";
         }
 
-        [Route("homw")]
-        public string Home()
+        [Route("home")]
+        public ContentResult Home()
         {
-            return "Home Page";
+            return new ContentResult()
+            {
+                Content = "Home Page",
+                ContentType = "text/plain"
+                //ContentType = "application/json"
+            };
         }
 
         [Route("about")]
-        public string About()
+        public ContentResult About()
         {
-            return "About Page";
+            return Content("About page","text/plain");
         }
 
         [Route("contact-us/{mobile:int}")]
-        public string Contact()
+        public ContentResult Contact()
         {
-            return "Contact Page";
+            return Content("<h1>Hello World</h1>", "text/html");
         }
     }
 }
