@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoutingMvc", "RoutingMvc\Ro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6.useStaticFiles", "6.useStaticFiles\6.useStaticFiles.csproj", "{CF07C1E9-4C63-442C-B33C-E36573CB9E3E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "7.ControllersExample", "ControllersExample\7.ControllersExample.csproj", "{026A8944-B58C-4FF6-900C-38845385C702}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +99,18 @@ Global
 		{CF07C1E9-4C63-442C-B33C-E36573CB9E3E}.Release|x64.Build.0 = Release|Any CPU
 		{CF07C1E9-4C63-442C-B33C-E36573CB9E3E}.Release|x86.ActiveCfg = Release|Any CPU
 		{CF07C1E9-4C63-442C-B33C-E36573CB9E3E}.Release|x86.Build.0 = Release|Any CPU
+		{026A8944-B58C-4FF6-900C-38845385C702}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{026A8944-B58C-4FF6-900C-38845385C702}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{026A8944-B58C-4FF6-900C-38845385C702}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{026A8944-B58C-4FF6-900C-38845385C702}.Debug|x64.Build.0 = Debug|Any CPU
+		{026A8944-B58C-4FF6-900C-38845385C702}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{026A8944-B58C-4FF6-900C-38845385C702}.Debug|x86.Build.0 = Debug|Any CPU
+		{026A8944-B58C-4FF6-900C-38845385C702}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{026A8944-B58C-4FF6-900C-38845385C702}.Release|Any CPU.Build.0 = Release|Any CPU
+		{026A8944-B58C-4FF6-900C-38845385C702}.Release|x64.ActiveCfg = Release|Any CPU
+		{026A8944-B58C-4FF6-900C-38845385C702}.Release|x64.Build.0 = Release|Any CPU
+		{026A8944-B58C-4FF6-900C-38845385C702}.Release|x86.ActiveCfg = Release|Any CPU
+		{026A8944-B58C-4FF6-900C-38845385C702}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
