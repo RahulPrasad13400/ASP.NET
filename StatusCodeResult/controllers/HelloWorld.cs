@@ -4,10 +4,12 @@ namespace StatusCodeResult.controllers
 {
     public class HelloWorld : Controller
     {
-        [Route("hello-world")]
+        // Getting the value of id from Home Controller where we had written the redirection 
+        [Route("hello-world/{id}")]
         public IActionResult Abc()
         {
-            return Content("hello-world");
+            int id = Convert.ToInt32(Request.RouteValues["id"]);
+            return Content($"hello-world : {id}");
         }
     }
 }
