@@ -29,5 +29,11 @@ namespace _12.ModelValidations.Models
         //[MinimumYearValidatorAttribute]
         [MinimumYearValidatorAttribute(ErrorMessage ="Date of birth should not be newer than Jan 01, 2000")]
         public DateTime? DateOfBirth { get; set; }
+    
+
+        // CUSTOM VALIDATIONS WITH MULTIPLE PROPERTIES 
+        public DateTime FromDate { get; set; }
+        [DateRangeValidator("FromDate", ErrorMessage = "From Date should be less than to date")]
+        public DateTime ToDate { get; set; }
     }
 }
