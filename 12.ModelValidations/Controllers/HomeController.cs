@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using _12.ModelValidations.Models;
+using Microsoft.AspNetCore.Mvc;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace _12.ModelValidations.Controllers
@@ -6,7 +7,8 @@ namespace _12.ModelValidations.Controllers
     public class HomeController : Controller
     {
         [HttpPost("register")]
-        public IActionResult Index([FromBody]_12.ModelValidations.Models.Person person)
+        //public IActionResult Index([Bind("PersonName", "Email")]_12.ModelValidations.Models.Person person)
+        public IActionResult Index([Bind(nameof(Person.Name), nameof(Person.Email))] _12.ModelValidations.Models.Person person)
         {
             if (!ModelState.IsValid)
             {
