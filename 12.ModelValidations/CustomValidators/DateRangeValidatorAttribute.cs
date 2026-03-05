@@ -10,7 +10,7 @@ namespace _12.ModelValidations.CustomValidators
         {
             OtherPropertyName = otherPropertyName;
         }
-        public override ValidationResult IsValid(object? value, ValidationContext validationContext)
+        protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
         {
             if (value != null) {
                 DateTime toDate = Convert.ToDateTime(value);
@@ -19,13 +19,24 @@ namespace _12.ModelValidations.CustomValidators
                 // REFLECTION
                 PropertyInfo? otherProperty = validationContext.ObjectType.GetProperty(OtherPropertyName);
 
-                DateTime fromDate = Convert.ToDateTime(otherProperty.GetValue(validationContext.ObjectInstance));
-
-                if (fromDate > toDate)
+                if (otherProperty != null)
                 {
-                    return new ValidationResult(ErrorMessage, new[] { OtherPropertyName, validationContext.MemberName });
+                    DateTime fromDate = Convert.ToDateTime(otherProperty.GetValue(validationContext.ObjectInstance));
+
+                    if (fromDate > toDate)
+                    {
+                        return new ValidationResult(ErrorMessage, new string[] { OtherPropertyName, validationContext.MemberName });
+                    }    
+                    
+                    return ValidationResult.Success;
+                    
                 }
+
+                return ValidationResult.Success;
             }
+
+            return ValidationResult.Success;
+           
         }
     }
 }
