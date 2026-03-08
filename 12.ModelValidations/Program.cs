@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers(options =>
 {
-    options.ModelBinderProviders.Insert(0, new PersonBinderProviders());
+    //options.ModelBinderProviders.Insert(0, new PersonBinderProviders());
 });
 
 

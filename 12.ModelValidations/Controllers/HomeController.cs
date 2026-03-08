@@ -10,10 +10,11 @@ namespace _12.ModelValidations.Controllers
         [HttpPost("register")]
         //public IActionResult Index([Bind("PersonName", "Email")]_12.ModelValidations.Models.Person person)
         //public IActionResult Index([Bind(nameof(Person.Name), nameof(Person.Email))] _12.ModelValidations.Models.Person person)
-        
-                                    
-                                 // Custom Model Binder
-        public IActionResult Index([ModelBinder(BinderType = typeof(PersonModelBinder))]_12.ModelValidations.Models.Person person)
+
+
+        // Custom Model Binder
+        //public IActionResult Index([ModelBinder(BinderType = typeof(PersonModelBinder))]_12.ModelValidations.Models.Person person)
+        public IActionResult Index([ModelBinder(BinderType = typeof(PersonModelBinder))] _12.ModelValidations.Models.Person person, [FromHeader(Name = "User-Agent")] string UserAgent)
         {
             if (!ModelState.IsValid)
             {

@@ -41,6 +41,10 @@ namespace _12.ModelValidations.Models
         public int? Age { get; set; }
 
 
+        // Collection Binding
+        public List<string?> Tags { get; set; } = new List<string?>();
+
+
         // IValidatableObject
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
