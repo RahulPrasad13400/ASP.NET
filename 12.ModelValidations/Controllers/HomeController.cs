@@ -14,7 +14,13 @@ namespace _12.ModelValidations.Controllers
 
         // Custom Model Binder
         //public IActionResult Index([ModelBinder(BinderType = typeof(PersonModelBinder))]_12.ModelValidations.Models.Person person)
-        public IActionResult Index([ModelBinder(BinderType = typeof(PersonModelBinder))] _12.ModelValidations.Models.Person person, [FromHeader(Name = "User-Agent")] string UserAgent)
+
+        // From header
+        //public IActionResult Index([ModelBinder(BinderType = typeof(PersonModelBinder))] _12.ModelValidations.Models.Person person, [FromHeader(Name = "User-Agent")] string UserAgent)
+
+        // From body
+        public IActionResult Index([FromBody] _12.ModelValidations.Models.Person person, [FromHeader(Name = "User-Agent")] string UserAgent)
+
         {
             if (!ModelState.IsValid)
             {

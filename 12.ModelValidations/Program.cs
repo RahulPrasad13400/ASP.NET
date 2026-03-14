@@ -7,7 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers(options =>
 {
     //options.ModelBinderProviders.Insert(0, new PersonBinderProviders());
-});
+}).AddXmlSerializerFormatters();    // Input Formatters
+
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
