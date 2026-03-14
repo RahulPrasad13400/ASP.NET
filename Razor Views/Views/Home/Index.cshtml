@@ -12,6 +12,8 @@
 					"Fight Club"
 				}
 			};
+
+	string alertMessage = $@"<script>alert('{person.FavouriteMovies.Count} people found')</script>";
 }
 
 @{
@@ -36,6 +38,7 @@
 		<meta charset="utf-8" />
 	</head>
 	<body>
+		@Html.Raw(alertMessage)
 		<div>
 			<h1>@appTitle</h1>
 			<h2>@person.Name</h2>
