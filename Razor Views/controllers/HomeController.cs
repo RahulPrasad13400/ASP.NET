@@ -9,6 +9,8 @@ namespace Razor_Views.controllers
         public IActionResult Index()
         {
             //return new ViewResult() { ViewName = "abc"};
+
+            ViewData["pageTitle"] = "Asp.Net Core Demo App";
             return View();
         }
     }
