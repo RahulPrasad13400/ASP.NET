@@ -13,6 +13,19 @@
 				}
 			};
 }
+
+@{
+	decimal? getAge(DateTime? dateOfBirth)
+	{
+		if (dateOfBirth.HasValue)
+		{
+			return Math.Round((decimal)(DateTime.Now - dateOfBirth.Value).TotalDays / 365.25m);
+		}
+
+		return null;
+	}
+}
+
 <!DOCTYPE html>
 
 <html>
@@ -64,6 +77,11 @@
 				<text>Go watch it...</text>
 				@:Hello World
 				<h4>@movie</h4>
+			}
+
+			@{
+				<h1>The Age Calculated using Function is : </h1>
+				<h2>@getAge(person.DateOfBirth)</h2>
 			}
 
 		</div>
